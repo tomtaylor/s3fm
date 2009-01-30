@@ -1,6 +1,6 @@
-%h1= @playlist.title
+%h1= "you're listening to #{@playlist.title}"
 
 #controls
-  %a{:href => "", :id => 'pause' } Pause
+  %a{:href => "", :id => 'playpause-button', :class => 'playing' } Pause
   \|
-  %a{ :href => "", :id => 'next' } Next
+  %a{ :href => "", :id => 'next-button' } Next
