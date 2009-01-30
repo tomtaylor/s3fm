@@ -5,6 +5,7 @@ soundManager.onload = function() {
 
   $.getJSON('/radiotom?format=json', function(data) {
     
+    // ensures it loops if this sound is the last one
     function playNext(i) {
       if ((i+1) == data.length) {
         soundManager.play('0');
@@ -21,7 +22,6 @@ soundManager.onload = function() {
           playNext(i);
         },
         onload: function() {
-          
           // if there's a load failure, unload and play the next one
           if (this.readyState == 2) {
             this.unload();
