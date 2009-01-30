@@ -4,16 +4,28 @@ soundManager.flashVersion = 9;
 soundManager.onload = function() {
 
   $.getJSON('/radiotom?format=json', function(data) {
+    
+    function playNext(i) {
+      if ((i+1) == data.length) {
+        soundManager.play('0');
+      } else {
+        soundManager.play((i+1).toString());
+      }
+    }
+    
     $.each(data, function(i, item) {
       var sound = soundManager.createSound({
         id: i.toString(),
         url: item,
         onfinish: function() {
-          // play the next id, unless it's the last one, in which case play the first
-          if ((i+1) == data.length) {
-            soundManager.play('0');
-          } else {
-            soundManager.play((i+1).toString());
+          playNext(i);
+        },
+        onload: function() {
+          
+          // if there's a load failure, unload and play the next one
+          if (this.readyState == 2) {
+            this.unload();
+            playNext(i);
           }
         }
       });
