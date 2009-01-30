@@ -1,11 +1,26 @@
-soundManager.waitForWindowLoad = true;
-soundManager.url = '/soundmanager/'
+soundManager.url = '/soundmanager/';
+soundManager.flashVersion = 9;
 
 soundManager.onload = function() {
-  var mySound = soundManager.createSound({
-      id: 'aSound',
-      url: 'https://speechificationaudio.s3.amazonaws.com/BBC7_King_Cutler_17012007.mp3',
-      volume: 50
+
+  $.getJSON('/radiotom?format=json', function(data) {
+    $.each(data, function(i, item) {
+      var sound = soundManager.createSound({
+        id: i.toString(),
+        url: item,
+        onfinish: function() {
+          // play the next id, unless it's the last one, in which case play the first
+          if ((i+1) == data.length) {
+            soundManager.play('0');
+          } else {
+            soundManager.play((i+1).toString());
+          }
+        }
+      });
     });
-  mySound.play();
+    
+    soundManager.play('0');
+  });
+  
 };
+
