@@ -1,5 +1,6 @@
 soundManager.url = '/soundmanager/';
 soundManager.flashVersion = 9;
+soundManager.consoleOnly = true;
 
 soundManager.onload = function() {
 
