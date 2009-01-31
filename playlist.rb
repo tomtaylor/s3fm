@@ -6,8 +6,6 @@ require 'open-uri'
 
 class Playlist
   
-  attr_reader :mp3s
-  
   def initialize(bucket)
     @bucket = bucket
     uri = URI.parse("https://#{bucket}.s3.amazonaws.com/")
@@ -19,6 +17,15 @@ class Playlist
   
   def title
     @bucket
+  end
+  
+  def mp3s(order = nil)
+    case order.to_sym
+    when :shuffle
+      @mp3s.sort_by { |m| rand }
+    when :name
+      @mp3s.sort_by { |m| m.downcase }
+    end
   end
   
 end

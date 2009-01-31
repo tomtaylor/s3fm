@@ -1,1 +1,20 @@
-%h1 Index
+%h1 S3 Radio
+
+%p A tool for turning an <a href="http://aws.amazon.com/s3/">Amazon S3</a> bucket into a streaming radio station.
+
+%form{ :action => '/bucketredirect', :method => 'post' }
+  %label What's your bucket called?
+  
+  #bucket-input
+    %input{ :type => 'text', :name => 'bucket', :id => "bucket-name"}
+    %input{ :type => 'submit', :value => 'Play', :id => "submit" }
+   
+%p Not got one? Try <a href="/speechificationaudio">speechificationaudio</a>.
+
+%h2 How does it work?
+
+%p You make a bucket on <a href="http://aws.amazon.com/s3/">Amazon S3</a>, filled with MP3s. When someone visits your S3 Radio station, it builds a playlist from the contents of the bucket and starts streaming it to the listener, in a random order.
+
+%p <strong>Make sure that both your bucket and the MP3s inside are 'world readable', otherwise the listener won't have permission to fetch them and things will break.</strong>
+
+%p Oh, and remember that the owner of the bucket pays for the bandwidth bills.

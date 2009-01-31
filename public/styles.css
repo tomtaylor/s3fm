@@ -18,8 +18,102 @@ body {
   font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 
-#controls {
-  padding: 5px;
-  font-size: 3em;
+#container {
+  width: 500px;
+  margin: 50px auto;
+}
+
+h1 {
   text-align: center;
+  font-size: 3em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+  width: 100%;
+  border-bottom: 3px solid red;
+}
+
+h2 {
+  text-align: left;
+  font-size: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  padding-bottom: 0.5em;
+  width: 100%;
+  border-bottom: 3px solid grey;
+}
+
+p {
+  margin-bottom: 1em;
+  line-height: 1.4em;
+}
+
+p.home {
+  text-align: center;
+}
+
+a {
+  color: black;
+}
+
+strong {
+  font-weight: bold;
+}
+
+form {
+  text-align: center;
+}
+
+form label {
+  font-weight: bold;
+}
+
+#bucket-input {
+  margin-top: 0.5em;
+  margin-bottom: 1em;
+}
+
+#controls {
+  margin-left: auto;
+  margin-right: auto;
+  width: 306px;
+}
+
+.button a {
+  display: block;
+  width: 128px;
+  height: 128px;
+/*  border: 1px solid red;*/
+}
+
+#playpause-button {
+  float: left;
+  width: 128px;
+  height: 128px;
+  background-image: url('/images/playpause.png');
+}
+
+#playpause-button.playing {
+  background-position: 128px 0px;
+}
+
+#fastforward-button {
+  margin-left: 50px;
+  float: left;
+  width: 128px;
+  height: 128px;
+  background-image: url('/images/fastforward.png');
+}
+
+span.cleardiv {
+  display: block;
+  clear: both;
+}
+
+#spinner {
+/*  border: 1px solid red;*/
+  margin: 2em auto;
+  width: 32px;
+  height: 32px;
+  clear: both;
+/*  display: none;*/
 }

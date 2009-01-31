@@ -10,18 +10,20 @@ soundManager.onload = function() {
   $('#playpause-button').click(function() {
     if ($(this).hasClass("playing")) {
       soundManager.pauseAll();
-      $(this).children('img').attr('src', '/images/player_play.png');
     } else {
       soundManager.resumeAll();
-      $(this).children('img').attr('src', '/images/player_pause.png');
     }
     $(this).toggleClass("playing");
     return false;
   });
   
-  $('#next-button').click(function() {
+  $('#fastforward-button').click(function() {
     soundManager.stopAll();
     playNext();
+    if (!$('#playpause-button').hasClass("playing")) {
+      $('#playpause-button').addClass("playing");
+    }
+    
     return false;
   });
   
@@ -36,8 +38,8 @@ soundManager.onload = function() {
     }
   }
   
-  $.getJSON('/' + station + '?format=json', function(data) {
-  
+  $.getJSON('/' + station + '?format=json&order=shuffle', function(data) {
+    $("#spinner").show();
     soundsCount = data.length;
   
     $.each(data, function(i, item) {
@@ -45,12 +47,15 @@ soundManager.onload = function() {
         id: i.toString(),
         url: item,
         onplay: function() {
+          $("#spinner").hide();
           currentSound = i;
         },
         onfinish: function() {
+          this.unload();
           playNext();
         },
         onload: function() {
+          $("#spinner").show();
           // if there's a load failure, unload and play the next one
           if (this.readyState == 2) {
             this.unload();
@@ -60,7 +65,6 @@ soundManager.onload = function() {
       });
     });
       
-    $('#playpause-button').children('img').attr('src', '/images/player_pause.png');
     $('#playpause-button').addClass('playing');
     soundManager.play('0');
   });
