@@ -1,6 +1,10 @@
+:javascript
+  var station = '#{@playlist.title}';
+
 %h1= "you're listening to #{@playlist.title}"
 
 #controls
-  %a{:href => "", :id => 'playpause-button', :class => 'playing' } Pause
-  \|
-  %a{ :href => "", :id => 'next-button' } Next
+  %a{:href => "", :id => 'playpause-button', :class => 'playing' }
+    %img{ :src => '/images/player_pause.png' }
+  %a{ :href => "", :id => 'next-button' }
+    %img{ :src => '/images/player_fastforward.png' }

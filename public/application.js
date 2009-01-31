@@ -10,10 +10,10 @@ soundManager.onload = function() {
   $('#playpause-button').click(function() {
     if ($(this).hasClass("playing")) {
       soundManager.pauseAll();
-      $(this).text("Play");
+      $(this).children('img').attr('src', '/images/player_play.png');
     } else {
       soundManager.resumeAll();
-      $(this).text("Pause");
+      $(this).children('img').attr('src', '/images/player_pause.png');
     }
     $(this).toggleClass("playing");
     return false;
@@ -36,11 +36,10 @@ soundManager.onload = function() {
     }
   }
   
-
-  $.getJSON('/speechificationaudio?format=json', function(data) {
-    
+  $.getJSON('/' + station + '?format=json', function(data) {
+  
     soundsCount = data.length;
-    
+  
     $.each(data, function(i, item) {
       var sound = soundManager.createSound({
         id: i.toString(),
@@ -60,9 +59,10 @@ soundManager.onload = function() {
         }
       });
     });
-    
+      
+    $('#playpause-button').children('img').attr('src', '/images/player_pause.png');
+    $('#playpause-button').addClass('playing');
     soundManager.play('0');
   });
-  
 };
 
