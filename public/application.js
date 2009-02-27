@@ -3,6 +3,10 @@ soundManager.flashVersion = 9;
 // soundManager.consoleOnly = true;
 soundManager.debugMode = false;
 
+soundManager.onerror = function() { 
+  alert('You need to have Flash installed to use S3 FM.'); 
+}
+
 soundManager.onload = function() {
   
   var currentSound = 0;
