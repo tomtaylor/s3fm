@@ -133,3 +133,10 @@ span.cleardiv {
 .title {
   text-align: center;
 }
+
+.footer {
+  border-top: 3px solid grey;
+  padding-top: 0.5em;
+  margin-top: 0.5em;
+  text-align: center;
+}

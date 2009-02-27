@@ -40,7 +40,7 @@ soundManager.onload = function() {
   }
   
   $.getJSON('/' + station + '?format=json&order=shuffle', function(data) {
-    $("#spinner").show();
+    $("#spinner img").show();
     soundsCount = data.length;
   
     $.each(data, function(i, item) {
@@ -48,7 +48,7 @@ soundManager.onload = function() {
         id: i.toString(),
         url: item,
         onplay: function() {
-          $("#spinner").hide();
+          $("#spinner img").hide();
           currentSound = i;
         },
         onfinish: function() {
@@ -56,11 +56,18 @@ soundManager.onload = function() {
           playNext();
         },
         onload: function() {
-          $("#spinner").show();
+          $("#spinner img").show();
           // if there's a load failure, unload and play the next one
           if (this.readyState == 2) {
             this.unload();
             playNext();
+          }
+        },
+        onbufferchange: function() {
+          if (this.isBuffering == true) {
+            $("#spinner img").show();
+          } else {
+            $("#spinner img").hide();
           }
         }
       });
