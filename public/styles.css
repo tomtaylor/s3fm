@@ -23,13 +23,21 @@ body {
   margin: 50px auto;
 }
 
+.header {
+  border-bottom: 3px solid red;
+  margin-bottom: 20px;
+}
+
 h1 {
   text-align: center;
   font-size: 3em;
-  margin-bottom: 0.5em;
-  padding-bottom: 0.5em;
-  width: 100%;
-  border-bottom: 3px solid red;
+  padding-bottom: 20px;
+  width: 300px;
+  height: 106px;
+  margin: 0 auto;
+  text-indent: -9000px;
+  background-image: url('/images/s3fm-logo.png');
+  background-repeat: no-repeat;
 }
 
 h2 {
@@ -116,4 +124,12 @@ span.cleardiv {
   height: 32px;
   clear: both;
 /*  display: none;*/
+}
+
+.no-border {
+  border: none;
+}
+
+.title {
+  text-align: center;
 }

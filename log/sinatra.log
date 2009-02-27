@@ -1,0 +1,21 @@
+./playlist.rb:2: warning: already initialized constant VERIFY_PEER
+config.ru:16: warning: Sinatra.application is deprecated; use Sinatra::Application instead.
+127.0.0.1 - - [03/Feb/2009 23:01:53] "GET / HTTP/1.1" 200 1367 0.1719
+127.0.0.1 - - [03/Feb/2009 23:01:53] "GET / HTTP/1.1" 200 1367 0.1876
+127.0.0.1 - - [03/Feb/2009 23:01:53] "GET / HTTP/1.1" 200 1367 0.2036
+127.0.0.1 - - [03/Feb/2009 23:01:53] "GET /favicon.ico HTTP/1.1" 404 420 0.0006
+127.0.0.1 - - [03/Feb/2009 23:01:53] "GET /styles.css HTTP/1.1" 200 2406 0.0194
+127.0.0.1 - - [03/Feb/2009 23:01:53] "GET /favicon.ico HTTP/1.1" 404 420 0.0186
+127.0.0.1 - - [03/Feb/2009 23:01:53] "GET /favicon.ico HTTP/1.1" 404 420 0.0195
+127.0.0.1 - - [03/Feb/2009 23:01:53] "GET /styles.css HTTP/1.1" 200 2406 0.0222
+127.0.0.1 - - [03/Feb/2009 23:01:53] "GET /styles.css HTTP/1.1" 200 2406 0.0229
+/Library/Ruby/Gems/1.8/gems/rack-0.9.1/lib/rack/handler/mongrel.rb:32:in `join': Interrupt
+	from /Library/Ruby/Gems/1.8/gems/rack-0.9.1/lib/rack/handler/mongrel.rb:32:in `run'
+	from /Library/Ruby/Gems/1.8/gems/rack-0.9.1/bin/rackup:172
+	from /usr/bin/rackup:19:in `load'
+	from /usr/bin/rackup:19
+/Library/Ruby/Gems/1.8/gems/rack-0.9.1/lib/rack/handler/mongrel.rb:32:in `join': Interrupt
+	from /Library/Ruby/Gems/1.8/gems/rack-0.9.1/lib/rack/handler/mongrel.rb:32:in `run'
+	from /Library/Ruby/Gems/1.8/gems/rack-0.9.1/bin/rackup:172
+	from /usr/bin/rackup:19:in `load'
+	from /usr/bin/rackup:19
