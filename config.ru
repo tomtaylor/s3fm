@@ -1,8 +1,9 @@
 require 'rubygems'
 require 'sinatra'
+require 'vendor/haml-2.0.9/lib/haml'
  
 disable :run
-set :env, :production
+set :environment, :production
 set :raise_errors, true
 set :views, File.dirname(__FILE__) + '/views'
 set :public, File.dirname(__FILE__) + '/public'
