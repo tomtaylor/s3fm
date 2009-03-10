@@ -3,6 +3,12 @@ require 'sinatra'
 require 'playlist'
 require 'json'
 
+before do
+  if options.environment == 'production' && request.host != 's3fm.co.uk'
+    redirect "http://s3fm.co.uk" + request.path_info
+  end
+end
+
 get '/' do
   haml :index
 end
